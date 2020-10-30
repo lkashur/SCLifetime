@@ -1,5 +1,5 @@
 # SCLifetime
-Tools to measure LAr purity in the SingleCube detector.
+Tool to view electron lifetime as a function of time in the SingleCube detector.
 
 To plot electron lifetime as a function of time, download Google sheet containing data as a csv file.  The sheet should contain columns of the following format (additional columns are fine):
 
