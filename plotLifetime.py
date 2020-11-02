@@ -28,11 +28,12 @@ def plot_lifetime(df):
     plt.title('SingleCube Electron Lifetime')
     plt.xlabel('Date(mm-dd hh)')
     plt.ylabel('Lifetime(ms)')
+    plt.ylim(ymin=0)
     plt.show()
 
 def main(*args):
     
-    #load csv (after downloadign google sheets as csv)
+    #load csv (after downloading google sheets as csv)
     in_file = args[0]
     df = pd.read_csv(in_file, parse_dates=['datetime'])
     df['datetime'] = pd.to_datetime(df['datetime'])
