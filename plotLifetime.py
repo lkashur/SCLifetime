@@ -1,8 +1,8 @@
 '''
 Plots electron lifetime against elapsed time for SingleCube detector.  Required input is csv file with the following columns(0s in estimate & uncertainty columns only to show number of decimal places):
 
-|datetime           |estimate|uncertainty|
-|mm-dd-yyyy hh:mm:ss|0.00    |0.00       |
+|datetime           |estimate|uncertainty_plus|uncertainty_minus|
+|mm-dd-yyyy hh:mm:ss|0.00    |0.00            |0.00             | 
 
 Usage: python3 plotLifetime.py filename.csv
 '''
@@ -16,11 +16,14 @@ def plot_lifetime(df):
     #prepare data 
     a = df.index.tolist()
     b = df['estimate'].tolist()
-    c = df['uncertainty'].tolist()
+    c = df['uncertainty_plus'].tolist()
+    d = df['uncertainty_minus'].tolist()
 
+    asymmetric_error = [d,c]
+    
     #format error bar caps
     plt.figure(figsize=(12,5))
-    (_, caps, _) = plt.errorbar(a, b, yerr=c, fmt='o', markersize=4, capsize=4, linestyle='None')
+    (_, caps, _) = plt.errorbar(a, b, yerr=asymmetric_error, fmt='o', markersize=4, capsize=4, linestyle='None')
     for cap in caps:
         cap.set_markeredgewidth(1)
 
