@@ -3,9 +3,9 @@ Tool to view electron lifetime as a function of time in the SingleCube detector.
 
 To plot electron lifetime as a function of time, download Google sheet containing data as a csv file.  The sheet should contain columns of the following format (additional columns are fine):
 
-```|datetime|estimate|uncertainty|```
+```|datetime|estimate|uncertainty_plus|uncertainty_minus|```
 
-```|mm-dd-yyyy hh:mm:ss|0.00    |0.00       |```
+```|mm-dd-yyyy hh:mm:ss|0.00    |0.00       |0.00       |```
 
 Once downloaded, run the command
 
